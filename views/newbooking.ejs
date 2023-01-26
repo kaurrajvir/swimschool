@@ -1,0 +1,51 @@
+<%- include ( "partials/header2"); -%>				
+<div class="container mt-5 newbooking">
+	<div class="row">				
+		<div class="heading2 wlcm-txt">			
+			<h1 style="margin: 0px 0px 35px 0px;">Start Your new Booking here:</h1>			
+		</div>
+		<div class="col-sm-8">					
+			<form action="/newbooking" class="newbooking" method="post">							
+				<div class="form-group add-student">	
+					<label for="html">Enter Student Name:</label><br>
+					<input type="text" name="studentName" id="studentName" required>	
+					<!--<a href="add-student" class="add-another">Add student</a>-->			
+				</div>
+				<div class="form-group">												
+					<label for="html">Choose Course:</label><br>
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th></th>
+							<th>Level</th>
+							<th>Start Date</th>
+							<th>End Date</th>
+							<th>Day</th>
+							<th>Time Slot</th>							
+							<th>Instructor</th>
+						</tr>
+					</thead>
+					<%
+						if (classData.length !=0) {var i=1; classData.forEach( function(data) {						
+					%>
+					<tr> 
+						<td class="sessionId"><input  type="radio" name="sessionId" id="sessionId" value="<%=data.sessionId%>" required></td>					
+						<td><%=data.level%></td>
+						<td><%=data.startDate%></td>
+						<td><%=data.endDate%></td>
+						<td><%=data.day%></td>
+						<td><%=data.timeSlot%></td>						
+						<td><%=data.instructor%></td>														
+					</tr>
+					<% i++; }) %> <%}%>					
+				</table>
+				</div>				
+				<div class="form-group">												
+					<button type="submit" class="btn">Submit Booking</button>
+				</div>									
+			</form>
+					
+		</div>				
+	</div>
+</div>
+<%- include ( "partials/footer2"); -%>	

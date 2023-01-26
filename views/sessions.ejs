@@ -1,0 +1,35 @@
+<%- include ( "partials/header2"); -%>		
+<div class="container mt-5">			
+	<div class="heading2">
+			<h1>Your Bookings</h1>			
+		</div>		
+	<div id="divGet">
+		<table class="table table-striped" style="height: 400px;">
+			<tr>
+				<th>Session Id</th>
+				<th>Date</th>
+				<th>Time Slot</th>
+				<th>Level</th>
+				<th>Instructor</th>				
+			</tr>					
+			<%
+				if (sessionData.length !=0) {var i=1; sessionData.forEach( function(data) {						
+			%>
+			<tr>						
+				<td><%=data.sessionId%></td>
+				<td><%=data.date%></td>
+				<td><%=data.timeSlot%></td>
+				<td><%=data.level%></td>
+				<td><%=data.instructor%></td>									
+												
+			</tr>
+			<% i++; }) %> <%}%>					
+		</table>
+	</div>
+	<div id="book-now">									
+		<a class="btn" href="newbooking">
+			<span>New Booking</span>
+		 </a>									
+	</div>
+</div>		
+<%- include ( "partials/footer"); -%>	

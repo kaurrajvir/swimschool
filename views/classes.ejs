@@ -1,0 +1,33 @@
+<%- include ( "partials/header"); -%>
+<div class="container mt-5">
+	<div class="row">
+		<h1 class="heading-color text-center">All available Sessions</h1>
+		<div class="col-sm-12 mt-5 class-details">			
+			<table class="table" style="height: 175px;">
+				<thead class="thead-dark">
+					<tr>
+						<th>Start Date</th>
+						<th>End Date</th>
+						<th>Day</th>
+						<th>Time Slot</th>
+						<th>Level</th>
+						<th>Instructor</th>
+					</tr>
+				</thead>											
+				<%
+					if (classData.length !=0) {var i=1; classData.forEach( function(data) {						
+				%>
+				<tr>						
+					<td><%=data.startDate%></td>
+					<td><%=data.endDate%></td>
+					<td><%=data.day%></td>
+					<td><%=data.timeSlot%></td>
+					<td><%=data.level%></td>
+					<td><%=data.instructor%></td>														
+				</tr>
+				<% i++; }) %> <%}%>					
+			</table>
+		</div>			
+	</div>
+</div>
+<%- include ( "partials/footer2"); -%>

@@ -1,0 +1,25 @@
+<%- include ( "partials/header"); -%>
+<div class="container mt-5 lg-reg">	
+	<div class="row justify-content-center">
+		<div class="col-sm-6 col-md-6 col-lg-4" >
+			<h1 class="heading-color">Login</h1>
+			<form action="/auth" method="post">	
+				<input type="hidden" name="token" id="token" required>
+				<div class="form-group">					
+					<input type="text" name="username" placeholder="Username" id="username" required>							
+				</div>	
+				<div class="form-group">					
+					<input type="password" name="password" placeholder="Password" id="password" required>							
+				</div>												
+				<div class="form-group">					
+					<input class="btn" type="submit" value="Login">							
+				</div>								
+			</form>
+			<div class="register">
+			or
+			<h6>Do not have account? <a href="register">Register here</a></h6>
+			</div>
+		</div>
+	</div>
+</div>				
+<%- include ( "partials/footer2"); -%>

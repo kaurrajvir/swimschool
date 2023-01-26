@@ -1,0 +1,34 @@
+<%- include ( "partials/header2"); -%>			
+<div class="container mt-5">
+	<div class="row">	
+	<div class="heading2">
+			<h1>Update your Bookings</h1>			
+	</div>	
+	<div class="col-sm-8">					
+		<form action="/update-bookings/<%=sessionId%>" method="POST" name="update">	
+			<div class="form-group">							
+				<input type="text" value="<%=startDate%>" name="startDate" class="form-control" id="startDate" placeholder="Start Date" required>								
+			</div>
+			<div class="form-group">						
+				<input type="text" value="<%=endDate%>" name="endDate" class="form-control" id="endDate" placeholder="End Date" required>								
+			</div>
+			<div class="form-group">						
+				<input type="text" value="<%=day%>" name="Day" class="form-control" id="Day" placeholder="Day" required>								
+			</div>	
+			<div class="form-group">						
+				<input type="text" value="<%=timeSlot%>" name="timeSlot" class="form-control" id="timeSlot" placeholder="Time Slot" required>								
+			</div>			
+			
+			<div class="form-group">						
+				<input type="text" value="<%=level%>" name="level" class="form-control" id="level" placeholder="Enter Course" required>								
+			</div>
+			<div class="form-group">					
+				<input type="text" value="<%=instructor%>" name="instructor" class="form-control" id="instructor" placeholder="Enter Teacher" required>								
+			</div>			 				 
+			<input class="btn" type="submit" name="Submit" value="Update" />	
+			<input type="hidden" name="_method" value="PUT" />						  
+		</form>					
+	</div>				
+	</div>
+</div>
+<%- include ( "partials/footer2"); -%>

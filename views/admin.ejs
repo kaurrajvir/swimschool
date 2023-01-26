@@ -1,0 +1,47 @@
+<%- include ( "partials/header2"); -%>		
+<div class="container mt-5">			
+	<div class="heading2">
+			<h1>All Bookings</h1>			
+		</div>		
+	<div id="divGet">
+		<table class="table table-striped" style="height: 150px;">
+			<thead class="thead-dark">
+				<tr>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Day</th>
+					<th>Time Slot</th>
+					<th>Level</th>
+					<th>Instructor</th>
+					<th>Update Booking</th>
+					<th>Delete Booking</th>
+				</tr>
+			</thead>					
+			<%
+				if (eData.length !=0) {var i=1; eData.forEach( function(data) {						
+			%>
+			<tr>						
+				<td><%=data.startDate%></td>
+				<td><%=data.endDate%></td>
+				<td><%=data.day%></td>
+				<td><%=data.timeSlot%></td>
+				<td><%=data.level%></td>
+				<td><%=data.instructor%></td>									
+				<td><a href="/update-bookings/<%=data.sessionId%>" class="btn">Update</a></td>	
+				<td>
+					<form method="post" action="/delete/<%= data.bookingId %>">
+						<input class="btn" type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+						<input type="hidden" name="_method" value="DELETE" />
+					</form>
+				</td>
+			</tr>
+			<% i++; }) %> <%}%>					
+		</table>
+	</div>
+	<div id="book-now">									
+		<a class="btn" href="newbooking">
+			<span>New Booking</span>
+		 </a>									
+	</div>
+</div>		
+<%- include ( "partials/footer2"); -%>	
